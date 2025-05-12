@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cloud & Co. Weather</title>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1508261303506-cb7a74b7ea0a?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      font-family: 'Segoe UI', Georgia, serif;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .weather-card {
+      background-color: rgba(140, 82, 45, 0.9);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    h1, h2 {
+      color: #FFDAB9;
+    }
+
+    .leaf-icon {
+      width: 30px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    .quote {
+      font-style: italic;
+      margin-top: 10px;
+      color: #FFF8DC;
+    }
+
+    .description {
+      margin-top: 10px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 20px;
+      width: 60%;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 20px auto;
+    }
+
+    th, td {
+      border: 1px solid #fff;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #A0522D;
+      color: #FFFFFF;
+    }
+
+    td {
+      background-color: #A0522D;
+    }
+
+    .weather-icon {
+      width: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="weather-card">
+    <h1><img src="https://img.icons8.com/emoji/48/000000/fallen-leaf.png" class="leaf-icon"/>Home Page</h1>
+    <h2>Cloud & Co. — Daily Autumn Weather</h2>
+    <h2 class="location">Springs</h2>
+    <h2 class="temperature">25°C</h2>
+    <div class="description">
+      Clear skies, crisp air, and golden leaves. Perfect hoodie weather. Autumn's chill is settling in, but the cozy vibes are strong.
+    </div>
+    <p class="quote">"Time for layers and warm drinks"</p>
+
+    <input type="text" id="searchInput" placeholder="Search weather description..." onkeyup="searchTable()">
+
+    <table id="weatherTable">
+      <thead>
+        <tr>
+          <th>Day</th>
+          <th>Weather</th>
+          <th>Temp</th>
+          <th>Icon</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monday</td>
+          <td>Clear skies</td>
+          <td>25°C</td>
+          <td><img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" class="weather-icon"/></td>
+        </tr>
+        <tr>
+          <td>Tuesday</td>
+          <td>Cloudy skies</td>
+          <td>15°C</td>
+          <td><img src="https://img.icons8.com/emoji/48/000000/cloud-emoji.png" class="weather-icon"/></td>
+        </tr>
+        <tr>
+          <td>Wednesday</td>
+          <td>Cloudy skies</td>
+          <td>16°C</td>
+          <td><img src="https://img.icons8.com/emoji/48/000000/cloud-emoji.png" class="weather-icon"/></td>
+        </tr>
+        <tr>
+          <td>Thursday</td>
+          <td>Sunny</td>
+          <td>19°C</td>
+          <td><img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" class="weather-icon"/></td>
+        </tr>
+        <tr>
+          <td>Friday</td>
+          <td>Sunny</td>
+          <td>21°C</td>
+          <td><img src="https://img.icons8.com/emoji/48/000000/sun-emoji.png" class="weather-icon"/></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function searchTable() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const rows = document.querySelectorAll("#weatherTable tbody tr");
+
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(input) ? "" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>
